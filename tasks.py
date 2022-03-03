@@ -95,3 +95,20 @@ for i in range (a, b+1) :
 n = int(input())
 for i in range(n, -1, -1) :
     print(i)
+
+    
+#json
+import json
+
+with open('sample-data.json') as f:
+    temp = json.load(f)
+
+print(  'Interface Status\n' +
+        '==============================================================================================\n' +
+        'DN\t\t\t\t\t\tDescription\t\tSpeed\t\tMTU\n' +
+        '-----------------------------------------------\t-----------------------\t---------------\t------')
+for i in range(temp['imdata'].__len__()):
+    print(  temp['imdata'][i]['l1PhysIf']['attributes']['dn'] + '\t' +
+            temp['imdata'][i]['l1PhysIf']['attributes']['descr'] + '\t\t\t' +
+            temp['imdata'][i]['l1PhysIf']['attributes']['speed'] + '\t\t' +
+            temp['imdata'][i]['l1PhysIf']['attributes']['mtu'])
